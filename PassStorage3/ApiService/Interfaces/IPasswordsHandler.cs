@@ -2,5 +2,6 @@
 {
     public interface IPasswordsHandler
     {
+        Task<IEnumerable<RoughPasswordResponse>> GetRoughListAsync();
     }
 }

@@ -19,7 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{builder.Environment.ApplicationName} v1"));
 }
 
-app.MapGet("/api/passwords", (IPasswordsHandler handler) => "ToDo Passwords");
+app.MapGet("/api/passwords", async (IPasswordsHandler handler) => await handler.GetRoughListAsync());
 
 app.MapPut("/api/password", async (PasswordRequest password, IPasswordHandler handler) => await handler.AddAsync(password));
 

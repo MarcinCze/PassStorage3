@@ -2,7 +2,7 @@
 
 namespace ApiService.Models
 {
-    public class PasswordRequest
+    public class PasswordRequest : IRequestEntityMapper<PasswordEntity>
     {
         public Guid Id { get; set; }
 
