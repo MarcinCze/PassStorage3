@@ -1,4 +1,4 @@
-﻿namespace ApiService.Handlers
+﻿namespace ApiService.Interfaces
 {
     public interface IPasswordsHandler
     {

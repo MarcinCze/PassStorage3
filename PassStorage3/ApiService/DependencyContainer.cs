@@ -6,6 +6,9 @@
         {
             services.AddSingleton<IPasswordHandler, PasswordHandler>();
             services.AddSingleton<IPasswordsHandler, PasswordsHandler>();
+
+            services.AddSingleton<IDatabaseReadService, LiteDbReadService>();
+            services.AddSingleton<IDatabaseWriteService, LiteDbWriteService>();
         }
     }
 }

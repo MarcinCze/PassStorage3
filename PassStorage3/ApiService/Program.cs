@@ -1,7 +1,3 @@
-global using ApiService;
-global using ApiService.Handlers;
-global using ApiService.Models;
-
 var builder = WebApplication.CreateBuilder(args);
 DependencyContainer.Register(builder.Services);
 
@@ -25,7 +21,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/api/passwords", (IPasswordsHandler handler) => "ToDo Passwords");
 
-app.MapPut("/api/password", (PasswordRequest password, IPasswordHandler handler) => $"ToDo Password Create New {password.Title}");
+app.MapPut("/api/password", async (PasswordRequest password, IPasswordHandler handler) => await handler.AddAsync(password));
 
 app.MapGet("/api/password/{passId}", (Guid passId, IPasswordHandler handler) => $"ToDo Password Get Details {passId}");
 
