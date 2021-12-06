@@ -1,4 +1,6 @@
-﻿namespace ApiService.Tests.HandlersTests
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ApiService.Tests.HandlersTests
 {
     public class PasswordHandlerTests
     {
@@ -33,10 +35,10 @@
 
             LiteDbWriteService liteDbWriteService = new(dateTimeProviderMock.Object);
             liteDbWriteService.SetDatabaseName(GetDbName());
-            PasswordHandler passwordHandler = new(liteDbWriteService);
+            PasswordHandler passwordHandler = await Task.FromResult<PasswordHandler>(new(liteDbWriteService));
 
             // Act
-            await passwordHandler.AddAsync(passwordRequest);
+            Assert.DoesNotThrowAsync(async () => await passwordHandler.AddAsync(passwordRequest));
 
             // Assert
             using var db = new LiteDatabase(liteDbWriteService.ConnString);
@@ -52,6 +54,33 @@
             Assert.AreEqual(0, results.First().ViewsCounter);
             Assert.AreEqual(dtNow, results.First().Created);
             Assert.AreEqual(dtNow, results.First().PasswordChanged);
+        }
+
+        [Test]
+        [TestCaseSource(typeof(TestCases.PasswordHandlerTestCases), nameof(TestCases.PasswordHandlerTestCases.AddPasswordFailureTestCases))]
+        public async Task Should_Throw_Exception_When_NotValid(PasswordRequest passwordRequest)
+        {
+            // Arrange
+            var dtNow = new DateTime(
+                year: 2021, month: 12, day: 6,
+                hour: 12, minute: 15, second: 0);
+            var dateTimeProviderMock = new Mock<IDateTimeProvider>();
+            dateTimeProviderMock.Setup(r => r.Now).Returns(dtNow);
+
+            LiteDbWriteService liteDbWriteService = new(dateTimeProviderMock.Object);
+            liteDbWriteService.SetDatabaseName(GetDbName());
+            PasswordHandler passwordHandler = await Task.FromResult<PasswordHandler>(new(liteDbWriteService));
+
+            // Act
+            Assert.ThrowsAsync<ValidationException>(async () => await passwordHandler.AddAsync(passwordRequest));
+
+            // Assert
+            using var db = new LiteDatabase(liteDbWriteService.ConnString);
+            var col = db.GetCollection<PasswordEntity>("passwords");
+            var results = col.FindAll().ToList();
+
+            Assert.IsNotNull(results);
+            Assert.AreEqual(0, results.Count);
         }
 
         private string GetDbName() =>

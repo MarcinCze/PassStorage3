@@ -9,7 +9,13 @@
             this.databaseWriteService = databaseWriteService;
         }
 
-        public async Task<SavedPasswordResponse> AddAsync(PasswordRequest password) => 
-            new() { Id = await databaseWriteService.AddAsync(password.ToEntityModel()) };
+        public async Task<SavedPasswordResponse> AddAsync(PasswordRequest password)
+        {
+            if (!password.IsValid)
+                throw new ValidationException();
+
+            return new() { Id = await databaseWriteService.AddAsync(password.ToEntityModel()) };
+        }
+            
     }
 }
