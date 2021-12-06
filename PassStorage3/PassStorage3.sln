@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiService", "ApiService\ApiService.csproj", "{38006508-CBDE-4BE5-BD37-7EA5E165850B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassStorage3.ApiService", "PassStorage3.ApiService\PassStorage3.ApiService.csproj", "{38006508-CBDE-4BE5-BD37-7EA5E165850B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiService.Cryptography", "ApiService.Cryptography\ApiService.Cryptography.csproj", "{932B9957-040F-4305-9355-9856EEBED27A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassStorage3.ApiService.Cryptography", "PassStorage3.ApiService.Cryptography\PassStorage3.ApiService.Cryptography.csproj", "{932B9957-040F-4305-9355-9856EEBED27A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiService.Data", "ApiService.Data\ApiService.Data.csproj", "{23524522-553F-4FD7-8F66-E17F44BF061A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassStorage3.ApiService.Data", "PassStorage3.ApiService.Data\PassStorage3.ApiService.Data.csproj", "{23524522-553F-4FD7-8F66-E17F44BF061A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiService.Tests", "ApiService.Tests\ApiService.Tests.csproj", "{A34EE8AF-87D8-4E10-BC45-7EF775F0525A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassStorage3.ApiService.Tests", "PassStorage3.ApiService.Tests\PassStorage3.ApiService.Tests.csproj", "{A34EE8AF-87D8-4E10-BC45-7EF775F0525A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
