@@ -75,8 +75,12 @@ jobs:
 
     # Build solution
     - name: Build solution
-      run: dotnet build
+      run: dotnet build PassStorage3\PassStorage3.sln
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
+    - name: Execute unit tests (PassStorage3.Crypto)
+      run: dotnet test PassStorage3\PassStorage3.Crypto.Tests\PassStorage3.Crypto.Tests.csproj
+      
+    # Execute all unit tests in the solution
+    - name: Execute unit tests (PassStorage3.Data)
+      run: dotnet test PassStorage3\PassStorage3.Data.Tests\PassStorage3.Data.Tests.csproj
