@@ -75,7 +75,7 @@ jobs:
 
     # MAUI Workload restore
     - name: MAUI Workload restore
-      run: dotnet workload restore
+      run: dotnet workload restore --project ".\PassStorage3.App\PassStorage3.App.csproj"
       
     # Build solution
     - name: Build solution
