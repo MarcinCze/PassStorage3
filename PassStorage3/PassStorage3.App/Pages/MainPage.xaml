@@ -20,12 +20,13 @@
                 HorizontalOptions="Center" />
 
             <Label
+                x:Name="labelStorageStatus"
                 Text="STORAGE LOCKED"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="LoginBtn"
+                x:Name="loginBtn"
                 Text="Login"
                 Clicked="OnLoginClicked"
                 HorizontalOptions="Center" />

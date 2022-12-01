@@ -4,7 +4,7 @@
 		
 		<TargetFrameworks></TargetFrameworks>
 		<!--<TargetFrameworks>$(TargetFrameworks);net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>-->
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		
@@ -15,10 +15,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>PassStorage3.App</ApplicationTitle>
+		<ApplicationTitle>PassStorage3</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.passstorage3.app</ApplicationId>
+		<ApplicationId>com.marcinczernecki.passstorage3</ApplicationId>
 		<ApplicationIdGuid>EDA93D69-68BC-44AC-A7A4-A091A3EB8D93</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -50,6 +50,12 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\key_1.svg" />
+	  <None Remove="Resources\Images\key_2.svg" />
+	  <None Remove="Resources\Images\login_img.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

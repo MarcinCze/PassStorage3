@@ -13,12 +13,30 @@ public partial class LoginPage : ContentPage
         this.authenticationService = authenticationService;
     }
 
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        //if (authenticationService.IsAuthenticated)
+        //{
+        //    await Shell.Current.GoToAsync($"///{nameof(MainPage)}", true);
+        //}
+    }
+
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        authenticationService.Authenticate(
+        try
+        {
+            authenticationService.Authenticate(
             entryPassword1.Text,
             entryPassword2.Text);
 
-        await Shell.Current.GoToAsync($"{nameof(ListPage)}", true);
+            await Shell.Current.GoToAsync($"/{nameof(ListPage)}", true);
+        }
+        catch (Exception ex)
+        {
+            labelFrameMsgError.Text = ex.Message;
+            frameMsgError.IsVisible = true;
+        }
     }
 }

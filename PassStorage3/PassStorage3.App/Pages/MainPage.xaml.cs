@@ -20,5 +20,16 @@ public partial class MainPage : ContentPage
         else
             await Shell.Current.GoToAsync($"{nameof(LoginPage)}", true);
     }
+
+    protected override void OnAppearing()
+    {
+		if (authenticationService.IsAuthenticated)
+		{
+			loginBtn.Text = "Open storage";
+			labelStorageStatus.Text = "STORAGE UNLOCKED";
+		}
+
+        base.OnAppearing();
+    }
 }
 

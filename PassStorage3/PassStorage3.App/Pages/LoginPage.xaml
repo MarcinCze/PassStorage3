@@ -10,27 +10,83 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Entry x:Name="entryPassword1"
-                   Placeholder="First password" />
-
-            <Entry x:Name="entryPassword2"
-                   Placeholder="Second password" />
-
+            <Image
+                Source="login_img.png"
+                HeightRequest="160"
+                Margin="30,0,0,0"
+                HorizontalOptions="Center" />
+            
             <Label
-                Text="PassStorage 3.0"
+                Text="Authenticate"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="ACCESS LOCKED"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <Frame 
+                x:Name="frameMsgError"
+                IsVisible="false"
+                BorderColor="Red"
+                CornerRadius="15"
+                Padding="15"
+                Margin="20,0,20,0">
+                <StackLayout>
+                    <Label 
+                        Text="Failure"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,10"/>
+                    <BoxView
+                        Color="Red"
+                        HeightRequest="2"
+                        HorizontalOptions="Fill" />
+                    <Label 
+                        x:Name="labelFrameMsgError"
+                        Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"
+                        Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <HorizontalStackLayout 
+                HorizontalOptions="Center" 
+                Spacing="20"
+                Margin="0,0,55,0">
+
+                <Image
+                    Source="key_1.png"
+                    HeightRequest="33"
+                    HorizontalOptions="Center" />
+                
+                <Entry x:Name="entryPassword1"
+                   Placeholder="First password"
+                   IsPassword="True"
+                   WidthRequest="300"
+                   HorizontalTextAlignment="Center"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout 
+                HorizontalOptions="Center"
+                Spacing="20"
+                Margin="0,0,55,0">
+
+                <Image
+                    Source="key_2.png"
+                    HeightRequest="33"
+                    HorizontalOptions="Center" />
+
+                <Entry x:Name="entryPassword2"
+                   Placeholder="Second password"
+                   IsPassword="True"
+                   WidthRequest="300"
+                   HorizontalTextAlignment="Center"/>
+
+            </HorizontalStackLayout>
 
             <Button
                 x:Name="LoginBtn"
                 Text="Log in"
                 Clicked="OnLoginClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                WidthRequest="150"/>
 
         </VerticalStackLayout>
     </ScrollView>
