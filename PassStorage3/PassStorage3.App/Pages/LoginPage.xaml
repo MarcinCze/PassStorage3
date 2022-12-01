@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PassStorage3.App.Pages.LoginPage"
+             Title="LoginPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Image
+                Source="login_img.png"
+                HeightRequest="160"
+                Margin="30,0,0,0"
+                HorizontalOptions="Center" />
+            
+            <Label
+                Text="Authenticate"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Frame 
+                x:Name="frameMsgError"
+                IsVisible="false"
+                BorderColor="Red"
+                CornerRadius="15"
+                Padding="15"
+                Margin="20,0,20,0">
+                <StackLayout>
+                    <Label 
+                        Text="Failure"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,10"/>
+                    <BoxView
+                        Color="Red"
+                        HeightRequest="2"
+                        HorizontalOptions="Fill" />
+                    <Label 
+                        x:Name="labelFrameMsgError"
+                        Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"
+                        Margin="0,10,0,0"/>
+                </StackLayout>
+            </Frame>
+
+            <HorizontalStackLayout 
+                HorizontalOptions="Center" 
+                Spacing="20"
+                Margin="0,0,55,0">
+
+                <Image
+                    Source="key_1.png"
+                    HeightRequest="33"
+                    HorizontalOptions="Center" />
+                
+                <Entry x:Name="entryPassword1"
+                   Placeholder="First password"
+                   IsPassword="True"
+                   WidthRequest="300"
+                   HorizontalTextAlignment="Center"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout 
+                HorizontalOptions="Center"
+                Spacing="20"
+                Margin="0,0,55,0">
+
+                <Image
+                    Source="key_2.png"
+                    HeightRequest="33"
+                    HorizontalOptions="Center" />
+
+                <Entry x:Name="entryPassword2"
+                   Placeholder="Second password"
+                   IsPassword="True"
+                   WidthRequest="300"
+                   HorizontalTextAlignment="Center"/>
+
+            </HorizontalStackLayout>
+
+            <Button
+                x:Name="LoginBtn"
+                Text="Log in"
+                Clicked="OnLoginClicked"
+                HorizontalOptions="Center"
+                WidthRequest="150"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

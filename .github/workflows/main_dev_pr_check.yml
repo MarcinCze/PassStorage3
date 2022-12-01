@@ -48,4 +48,4 @@ jobs:
 
     # Publish
     - name: Publish application
-      run: dotnet publish PassStorage3\PassStorage3.App\PassStorage3.App.csproj -f net6.0-windows10.0.19041.0 -p:WindowsPackageType=None -p:SelfContained=true -p:WindowsAppSDKSelfContained=true
+      run: dotnet publish PassStorage3\PassStorage3.App\PassStorage3.App.csproj -f net7.0-windows10.0.19041.0 -p:WindowsPackageType=None -p:SelfContained=true -p:WindowsAppSDKSelfContained=true
